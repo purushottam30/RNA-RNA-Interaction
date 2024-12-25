@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RNA Interaction Results</title>
+    <!-- Link to the external CSS file -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <!-- Banner Section -->
+    <header class="banner">
+        <h1>RNA Interaction Analysis Results</h1>
+    </header>
+
+    <!-- Main Content -->
+    <div class="container">
+        <!-- Section: Results Overview -->
+        <div class="section">
+            <h2>Results Overview</h2>
+            <p><strong>Selected Model:</strong> {{ selected_model }}</p>
+            <p><strong>Uploaded File A:</strong> {{ fileA }}</p>
+            <p><strong>Uploaded File B:</strong> {{ fileB }}</p>
+        </div>
+
+        <!-- Section: Visualization -->
+        <div class="section">
+            <h2>Visualization</h2>
+            <div class="result-card">
+                <img src="{{ url_for('static', filename='placeholder.png') }}" alt="{{ selected_model }} Visualization">
+            </div>
+        </div>
+
+        <!-- Back to Upload Button -->
+        <div class="section">
+            <a href="{{ url_for('upload_page') }}" class="submit-btn">Back to Upload</a>
+        </div>
+    </div>
+</body>
+</html>

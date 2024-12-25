@@ -1,0 +1,4 @@
+Flask
+Biopython
+matplotlib
+Werkzeug

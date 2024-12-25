@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RNA Interaction Analysis</title>
+    <!-- Link to the external CSS file -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <!-- Link to the external JS file -->
+    <script src="{{ url_for('static', filename='script.js') }}" defer></script>
+</head>
+<body>
+    <!-- Banner Section -->
+    <header class="banner">
+        <h1>RNA-RNA Interactions</h1>
+    </header>
+
+    <!-- Main Content -->
+    <div class="container">
+        <form action="{{ url_for('results_page') }}" method="POST" enctype="multipart/form-data">
+            <!-- Section 1: File Upload -->
+            <div class="section">
+                <h2>1: Upload Your Files</h2>
+                <p class="instruction">Please upload your RNA files in the correct format. <em>(Files must be .fasta)</em></p>
+                
+                <!-- File A Upload -->
+                <label class="file-label" for="fileA">File A for Interacting RNAs:</label>
+                <input type="file" id="fileA" name="fileA" required>
+                
+                <!-- File B Upload -->
+                <label class="file-label" for="fileB">File B for Interacting RNAs:</label>
+                <input type="file" id="fileB" name="fileB" required>
+            </div>
+
+            <!-- Section 2: Model Selection -->
+            <div class="section">
+                <h2>2: Select a Model</h2>
+                <p class="instruction">Choose a model selection type:</p>
+
+                <!-- Radio Buttons for Selection Type -->
+                <div class="radio-group" onchange="toggleModelOptions()">
+                    <label><input type="radio" id="manual" name="selection_type" value="manual" > Manual</label>
+                    <label><input type="radio" id="random" name="selection_type" value="random"> Random</label>
+                    <label><input type="radio" id="automatic" name="selection_type" value="automatic"> Automatic</label>
+                </div>
+
+                <!-- Manual Model Radio Buttons (Initially Hidden) -->
+                <div id="model-options" class="centered-options" style="display: none; margin-top: 20px;">
+                    <p>Select Model:</p>
+                    <label><input type="radio" name="manual_model" value="Model 1" required> Model 1</label>
+                    <label><input type="radio" name="manual_model" value="Model 2"> Model 2</label>
+                    <label><input type="radio" name="manual_model" value="Model 3"> Model 3</label>
+                </div>
+            </div>
+
+            <!-- Submit Button -->
+            <div class="section">
+                <button type="submit" class="submit-btn">Load Data</button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>
